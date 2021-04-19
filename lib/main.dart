@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dashboard - Levi',
       theme: ThemeData(
+          dialogBackgroundColor: Colors.grey[900],
           canvasColor: Colors.grey[900],
           primarySwatch: Colors.pink,
           scaffoldBackgroundColor: Colors.grey[900],
@@ -242,17 +243,21 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: BoxDecoration(
                           color: Colors.black12,
                           borderRadius: BorderRadius.circular(20)),
-                      child: Padding(
-                          padding: EdgeInsets.all(25.0),
-                          child: Column(children: [
-                            Padding(
-                              padding: EdgeInsets.all(10),
-                              child: Text("Titan Kills",
-                                  style: Theme.of(context).textTheme.headline3),
-                            ),
-                            Text("60+",
-                                style: Theme.of(context).textTheme.headline2)
-                          ]))),
+                      child: Card(
+                          child: Padding(
+                              padding: EdgeInsets.all(25.0),
+                              child: Column(children: [
+                                Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: Text("Titan Kills",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline3),
+                                ),
+                                Text("60+",
+                                    style:
+                                        Theme.of(context).textTheme.headline2)
+                              ])))),
                   Container(
                       decoration: BoxDecoration(
                           color: Colors.black12,
@@ -315,6 +320,47 @@ class _MyHomePageState extends State<MyHomePage> {
                               ]))
                         ]))),
               ),
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ))),
+                    child: Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Text(
+                          "Add to Favorites",
+                          style: Theme.of(context).textTheme.bodyText1,
+                        )),
+                    onPressed: () => showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Icon(
+                              Icons.warning,
+                              color: Colors.pink,
+                              size: 60.0,
+                            ),
+                            content: Text(
+                              "Levi Ackerman is already your favorite !",
+                              style: Theme.of(context).textTheme.bodyText1,
+                            ),
+                            actions: [
+                              TextButton(
+                                child: Text("I know"),
+                                onPressed: () => {Navigator.of(context).pop()},
+                              ),
+                              TextButton(
+                                  onPressed: () =>
+                                      {Navigator.of(context).pop()},
+                                  child: Text("Add him again"))
+                            ],
+                          );
+                        })),
+              )
             ],
           ),
         ),
