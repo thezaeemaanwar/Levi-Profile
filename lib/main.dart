@@ -15,23 +15,26 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.pink,
           scaffoldBackgroundColor: Colors.grey[900],
           textTheme: TextTheme(
-              headline4: TextStyle(
-                color: Colors.grey,
-                fontSize: 40,
-              ),
-              headline2: TextStyle(
-                color: Colors.pink,
-                fontSize: 40,
-              ),
-              headline3: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
-              bodyText1: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-              bodyText2: TextStyle(color: Colors.white))),
+            headline4: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+            headline2: TextStyle(
+              color: Colors.pink,
+              fontSize: 40,
+            ),
+            headline3: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+            bodyText1: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+            bodyText2: TextStyle(
+              color: Colors.white,
+            ),
+          )),
       home: MyHomePage(title: 'Levi Ackerman Profile'),
     );
   }
@@ -220,10 +223,10 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               FractionallySizedBox(
                 widthFactor: 1,
-                child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadius.circular(20)),
+                child: Card(
+                    color: Colors.black12,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0)),
                     child: Padding(
                         padding: EdgeInsets.all(20.0),
                         child: Column(children: [
@@ -239,29 +242,25 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                      decoration: BoxDecoration(
-                          color: Colors.black12,
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Card(
-                          child: Padding(
-                              padding: EdgeInsets.all(25.0),
-                              child: Column(children: [
-                                Padding(
-                                  padding: EdgeInsets.all(10),
-                                  child: Text("Titan Kills",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline3),
-                                ),
-                                Text("60+",
-                                    style:
-                                        Theme.of(context).textTheme.headline2)
-                              ])))),
-                  Container(
-                      decoration: BoxDecoration(
-                          color: Colors.black12,
-                          borderRadius: BorderRadius.circular(20)),
+                  Card(
+                      color: Colors.black12,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
+                      child: Padding(
+                          padding: EdgeInsets.all(25.0),
+                          child: Column(children: [
+                            Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Text("Titan Kills",
+                                  style: Theme.of(context).textTheme.headline3),
+                            ),
+                            Text("60+",
+                                style: Theme.of(context).textTheme.headline2)
+                          ]))),
+                  Card(
+                      color: Colors.black12,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
                       child: Padding(
                           padding: EdgeInsets.all(25.0),
                           child: Column(children: [
@@ -277,10 +276,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               FractionallySizedBox(
                 widthFactor: 1,
-                child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadius.circular(20)),
+                child: Card(
+                    color: Colors.black12,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0)),
                     child: Padding(
                         padding: EdgeInsets.all(20.0),
                         child: Column(children: [
@@ -346,7 +345,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             content: Text(
                               "Levi Ackerman is already your favorite !",
-                              style: Theme.of(context).textTheme.bodyText1,
+                              style: Theme.of(context).textTheme.headline4,
                             ),
                             actions: [
                               TextButton(
